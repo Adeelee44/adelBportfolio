@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adil Bouzoubaa - CV</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #f5f5f5;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            display: flex;
+            height: 297mm;
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+        
+        .container:last-child {
+            page-break-after: auto;
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            background: #f5f5f5;
+            color: #1a1a1a;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+            width: 280px;
+            flex-shrink: 0;
+            height: 100%;
+        }
+
+        /* Animated background blobs in sidebar */
+        .sidebar-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: blob 7s infinite;
+        }
+
+        .sidebar-blob-1 {
+            top: 10%;
+            left: -20%;
+            width: 300px;
+            height: 300px;
+            background: #404040;
+        }
+
+        .sidebar-blob-2 {
+            bottom: 20%;
+            right: -20%;
+            width: 250px;
+            height: 250px;
+            background: #6b6b6b;
+            animation-delay: 2s;
+        }
+
+        .sidebar-blob-3 {
+            top: 50%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: #505050;
+            animation-delay: 4s;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid rgba(0,0,0,0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0,0,0,0.15);
+            font-weight: 600;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: #404040;
+        }
+
+        .info-item svg {
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            padding: 6px 0;
+            font-size: 0.88rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .skills-list li:last-child {
+            border-bottom: none;
+        }
+
+        .languages-list {
+            list-style: none;
+        }
+
+        .languages-list li {
+            padding: 5px 0;
+            font-size: 0.88rem;
+        }
+
+        /* RIGHT CONTENT */
+        .main-content {
+            padding: 30px 35px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #4a6fa5;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #4a6fa5;
+            font-weight: 600;
+        }
+
+        .profile-text {
+            text-align: justify;
+            line-height: 1.6;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 18px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .item-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .item-date {
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .item-subtitle {
+            color: #4a6fa5;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .item-details {
+            margin-left: 0;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .item-details li {
+            margin-bottom: 5px;
+            list-style-position: outside;
+            margin-left: 18px;
+        }
+
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            list-style: none;
+        }
+
+        .interests-list li {
+            padding: 6px 0;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .interests-list li:before {
+            content: "• ";
+            color: #4a6fa5;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        @keyframes blob {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1); 
+            }
+            33% { 
+                transform: translate(30px, -50px) scale(1.1); 
+            }
+            66% { 
+                transform: translate(-20px, 20px) scale(0.9); 
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                margin: 0;
+                box-shadow: none;
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 0;
+            }
+            .sidebar {
+                padding: 30px 20px;
+            }
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-blob sidebar-blob-1"></div>
+            <div class="sidebar-blob sidebar-blob-2"></div>
+            <div class="sidebar-blob sidebar-blob-3"></div>
+            
+            <div class="profile-section">
+                <div class="profile-photo">
+                    <img src="../public/images/adil2.jpg" alt="Adil Bouzoubaa">
+                </div>
+                <h1 class="name">Adil Bouzoubaa</h1>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Informations personnelles</h3>
+                <div class="info-item">
+                    <i data-lucide="user"></i>
+                    <span>Adil Bouzoubaa</span>
+                </div>
+                <div class="info-item">
+                    <i data-lucide="mail"></i>
+                    <span>adelbouzoubaa@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i data-lucide="phone"></i>
+                    <span>+212 721 352 962</span>
+                </div>
+                <div class="info-item">
+                    <i data-lucide="map-pin"></i>
+                    <span>Tétouan, Maroc</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Compétences</h3>
+                <ul class="skills-list">
+                    <li>React</li>
+                    <li>Next.js</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>Tailwind CSS</li>
+                    <li>Node.js</li>
+                    <li>PostgreSQL</li>
+                    <li>MySQL</li>
+                    <li>Git</li>
+                    <li>Windsurf IDE</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Langues</h3>
+                <ul class="languages-list">
+                    <li>Arabe</li>
+                    <li>Anglais</li>
+                    <li>Français</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Profil</h2>
+                <p class="profile-text">
+                    Développeur Full-Stack Junior titulaire d'une Licence en Génie Informatique avec une expérience pratique dans la création d'applications web modernes utilisant React, Next.js et PostgreSQL. Passionné par la création de solutions élégantes et conviviales et l'apprentissage continu de nouvelles technologies. Solide formation technique en développement full-stack avec un accent sur l'architecture évolutive et les bonnes pratiques de code. Explore activement les technologies d'IA et les Large Language Models (LLM), avec la vision de créer des solutions SaaS alimentées par l'IA pour l'automatisation du développement web.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Formation</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Licence en Génie Informatique (Bac+3)</h3>
+                        <span class="item-date">juin 2021</span>
+                    </div>
+                    <p class="item-subtitle">Institut Supérieur de Génie Informatique, Maroc</p>
+                    <ul class="item-details">
+                        <li>Spécialisation : Génie Logiciel / Génie Informatique</li>
+                        <li>Mention : Passable</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Expérience professionnelle</h2>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Développeur Web Freelance</h3>
+                        <span class="item-date">de 2021 à ce jour</span>
+                    </div>
+                    <p class="item-subtitle">Auto-Entrepreneur, Maroc</p>
+                    <ul class="item-details">
+                        <li>Développement et maintenance d'applications web personnalisées pour divers clients</li>
+                        <li>Construction de solutions full-stack utilisant des frameworks JavaScript modernes et des bases de données</li>
+                        <li>Implémentation de designs responsives avec un accent sur l'expérience utilisateur</li>
+                        <li>Gestion de projets de manière autonome, de la collecte des besoins au déploiement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Centres d'intérêt</h2>
+                <ul class="interests-list">
+                    <li>Intelligence Artificielle</li>
+                    <li>Développement IA</li>
+                    <li>Science & Apprentissage</li>
+                    <li>Technologie</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2 - PROJECTS -->
+    <div class="container" style="margin-top: 40px; page-break-before: always;">
+        <!-- LEFT SIDEBAR - BLANK for layout consistency -->
+        <div class="sidebar">
+            <div class="sidebar-blob sidebar-blob-1"></div>
+            <div class="sidebar-blob sidebar-blob-2"></div>
+            <div class="sidebar-blob sidebar-blob-3"></div>
+        </div>
+
+        <!-- RIGHT CONTENT - PROJECTS -->
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Projets</h2>
+
+                <!-- Project 1 - Next.js Version -->
+                <div class="experience-item">
+                    <h3 class="item-title">Site Web Portfolio Artiste (mobouzoubaa.art) v2</h3>
+                    <p class="item-subtitle">En Cours de Developpementt</p>
+                    <p style="margin: 10px 0; font-weight: 600; color: #333;">Next.js 15, React 19, TypeScript, Prisma + PostgreSQL</p>
+                    <ul class="item-details">
+                        <li>Application Next.js fullstack avec tableau de bord d'administration complet.</li>
+                        <li>Implémentation de Prisma ORM avec PostgreSQL pour une gestion robuste des données (peintures, photos d'artiste, offres).</li>
+                        <li>Opérations CRUD sécurisées avec système d'authentification (bcryptjs, NextAuth).</li>
+                        <li>Internationalisation (i18n) avec next-intl pour support multi-langues.</li>
+                        <li>Interface galerie avec filtrage dynamique avancé.</li>
+                    </ul>
+                </div>
+
+                <!-- Project 2 - React/TypeScript Version -->
+                <div class="experience-item">
+                    <h3 class="item-title">Site Web Portfolio Artiste (mobouzoubaa.art) v1</h3>
+                    <p class="item-subtitle">www.mobouzoubaa.art</p>
+                    <p style="margin: 10px 0; font-weight: 600; color: #333;">React 18, TypeScript, Vite, Tailwind CSS, SQL.js</p>
+                    <ul class="item-details">
+                        <li>Application web multi-pages avec React 18 et TypeScript.</li>
+                        <li>Base de données côté client avec SQL.js pour stockage local sans serveur backend.</li>
+                        <li>Gestion complète de la base de données en mémoire avec persistence via LocalStorage.</li>
+                        <li>Internationalisation (i18next) pour support multilingue (Français, Anglais, Arabe).</li>
+                        <li>Navigation multi-pages avec React Router DOM (Accueil, Galerie, Biographie, Contact).</li>
+                        <li>Interface galerie interactive.</li>
+                        <li>Filtrage dynamique des peintures.</li>
+                        <li>Déployé sur Vercel avec intégration continue depuis GitHub.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
