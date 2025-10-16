@@ -50,7 +50,7 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center">
           <Button variant="ghost" size="sm" asChild>
-            <a href="/Adil_Bouzoubaa_CV.pdf" download>
+            <a href={`${import.meta.env.BASE_URL}Adil_Bouzoubaa_CV.pdf`} download>
               <Download className="mr-2 h-4 w-4" />
               Download CV
             </a>
@@ -81,7 +81,7 @@ const Navbar = () => {
                 </a>
               ))}
               <Button variant="outline" asChild className="w-full mt-4">
-                <a href="/Adil_Bouzoubaa_CV.pdf" download>
+                <a href={`${import.meta.env.BASE_URL}Adil_Bouzoubaa_CV.pdf`} download>
                   <Download className="mr-2 h-4 w-4" />
                   Download CV
                 </a>

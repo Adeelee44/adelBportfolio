@@ -81,7 +81,7 @@ const About = () => {
 
             {/* Download CV Button */}
             <Button variant="default" size="lg" asChild className="mt-6 text-base">
-              <a href="/Adil_Bouzoubaa_CV.pdf" download>
+              <a href={`${import.meta.env.BASE_URL}Adil_Bouzoubaa_CV.pdf`} download>
                 <Download size={20} />
                 <span>Download CV</span>
               </a>
